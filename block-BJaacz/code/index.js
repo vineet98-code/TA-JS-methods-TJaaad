@@ -3,21 +3,35 @@
 /*
   Create a function named addTwo which accepts a number, adds 2 to the number and return the new value.
 */
-
+let addTwo = function(num) {
+  return 2 + num;
+};
 /*
   Create a function named addThree which accepts a number, adds 3 to the number and return the new value.
 */
+// let addThree = function(num) {
+//   return 3 + num;
+// }
 
 /*
   Create a function named addFive which accepts a number, adds 5 to the number and return the new value.
 */
-
+// let addFive = function(num) {
+//   return 5 + num;
+// }
 /*
   Create a function named addTwoToArray which accepts:
     - An array of numbers
     - Returns a new array where 2 is added to each element
     - While doing so use the funciton addTwo
 */
+function addTwoToArray(arr, cb){
+   let finalArray = [];
+   finalArray.push(arr);
+   return finalArray;
+};
+
+console.log(addTwoToArray([1,2,6,7], addTwo));
 
 /*
   Create a function named addThreeToArray which accepts:
@@ -59,6 +73,11 @@ In above function addTwoToArray, addThreeToArray, addFiveToArray we are repeatin
     console.log(sendMessage("Hello Alert!", alert));
     console.log(sendMessage("Hello Prompt!", prompt));
 */
+
+function sendMessage(str, cb) {
+  
+}
+
 
 /*
 
@@ -113,7 +132,9 @@ const grades = [
     console.log(isAdult(people[1])); // true
     console.log(isAdult(people[2])); // true
 */
-
+function isAdult(){
+   
+}
 /*
   Create a function named isMale which accepts:
     - an object
@@ -319,3 +340,12 @@ filter is a higher order function.
     console.log(multiplyByFive(20)); // 180
     console.log(multiplyByFive(5)); // 45
 */
+
+function multiplyBy(num) {
+  return function(num2) {
+    return num * num2;
+  }
+};
+
+let multiplyByFive = multiplyBy(5);
+console.log(multiplyByFive(10));
