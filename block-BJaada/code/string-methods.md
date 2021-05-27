@@ -38,11 +38,11 @@ Example:
     - Example: 
       ```js
       const sentence = 'Welcome to ALtcampus.';
-      sentence.toUpperCase(); // 
+      sentence.toUpperCase(); // "WELCOME TO ALTCAMPUS."
       let name = 'Vineet';
-      name.toUpperCase(); //
+      name.toUpperCase(); // "VINEET"
       let carName = 'altis';
-      carName.toUpperCase(); //
+      carName.toUpperCase(); // "ALTIS"
       ```
 
 3. `toLowerCase`
@@ -52,11 +52,11 @@ Example:
     - Example: 
       ```js
       const sentence = 'Welcome to ALtcampus.';
-      sentence.toLowerCase(); // 
+      sentence.toLowerCase(); // "welcome to altcampus."
       let name = 'VINEET';
-      name.toLowerCase(); //
+      name.toLowerCase(); // "vineet"
       let carName = 'COROLLA';
-      carName.toLowerCase(); //
+      carName.toLowerCase(); // "corolla"
       ```
     
 4. `trim`
@@ -66,11 +66,11 @@ Example:
     - Example: 
       ```js
       const sentence = '   Welcome to ALtcampus.  ';
-      sentence.trim(); // 
+      sentence.trim(); // "Welcome to ALtcampus."
       let greeting  = '  hello world! ';
-      name.trim(); //
+      greeting.trim(); // "hello world!"
       let carName = '   altis  ';
-      carName.trim(); //
+      carName.trim(); //  "altis"
       ```
 5. `trimEnd`
 
@@ -79,11 +79,11 @@ Example:
     - Example: 
       ```js
       const sentence = 'Welcome to ALtcampus.   ';
-      sentence.trimEnd(); // 
+      sentence.trimEnd(); //  "Welcome to ALtcampus."
       let name = 'Vineet  ';
-      name.trimEnd(); //
+      name.trimEnd(); //   "Vineet"
       let carName = 'altis  ';
-      carName.trimEnd(); //
+      carName.trimEnd(); // "altis"
       ```
 6. `trimStart`
    
@@ -92,11 +92,11 @@ Example:
     - Example: 
       ```js
       const sentence = '   Welcome to ALtcampus.';
-      sentence.trimStart(); // 
+      sentence.trimStart(); // "Welcome to ALtcampus."
       let name = '  Vineet';
-      name.trimStart(); //
+      name.trimStart(); //   "Vineet"
       let carName = '  altis';
-      carName.trimStart(); // 
+      carName.trimStart(); // "altis"
       ```
 7. `concat`
 
@@ -106,15 +106,15 @@ Example:
       ```js
       let  sentence = 'Welcome to ALtcampus.';
       let  word = 'System';
-      sentence.concat('', word); // 
+      sentence.concat('', word); // "Welcome to ALtcampus.System"
 
       let firstName = 'Vineet';
       let lastName = 'kumar';
-      firstName.concat('', lastName); //
+      firstName.concat(' ', lastName); // "Vineet kumar"
 
       let carCompany = 'corolla';
       let carList = ['corolla', ' ', 'Altis'];
-      carCompany.concat('...carList');
+      carCompany.concat('...carList');  // "corolla...carList"
       
       ```
 
@@ -126,13 +126,13 @@ Example:
     - Example: 
       ```js
       let str = 'To be, or not to be, that is the question.'
-      str.endsWith('question'); // 
+      str.endsWith('question'); // false
 
       let name = 'Vineet is the best';
-      name.endsWith('bad'); //
+      name.endsWith('bad'); // false
 
       let carName = 'Altis, the superfical is car';
-      carName.endsWith('car');
+      carName.endsWith('car'); // true
 
       ```
 
@@ -141,130 +141,161 @@ Example:
     - Parameter: searchSring: - A string to be searched for within str.
                  position - The position within the string at which to begin searching for searchString
     - Return: true if the search string is found anywhere within the given string; otherwise, false if not.
+
     - Example: 
       ```js
       const sent = 'Welcome to ALtcampus.';
-      sent.includes('ALtcampus'); // 
+      sent.includes('ALtcampus'); // true
+
       let name = 'Vineet';
-      name.toUpperCase(); //
-      let carName = 'altis';
-      carName.toUpperCase();
+      name.includes('or not to be, that is the question.'); // false
+
+      let carName = 'altis is a nice car';
+      carName.includes('is'); // true
       ```
 10. `indexOf`
 
-    - Parameter: 
-    - Return: value of the String converted into uppercase.
+    - Parameter:  If no string is explicitly provided, searchValue will be undefined
+    - Return: The index of the first occurrence of searchValue, or -1 if not found. An integer     representing the index at which to start the search. Defaults to 0
     - Example: 
       ```js
       const sentence = 'Welcome to ALtcampus.';
-      sentence.toUpperCase(); // 
+      sentence.indexOf('c'); // 3
       let name = 'Vineet';
-      name.toUpperCase(); //
+      name.indexOf(); //-1
+
       let carName = 'altis';
-      carName.toUpperCase();
+      carName.indexOf(''); // 0
       ```
 11. `lastIndexOf`
 
-    - Parameter: 
-    - Return: value of the String converted into uppercase.
+    - Parameter: A string representing the value to search for. If searchValue is an empty string, then fromIndex is returned.
+    - Return: The index of the last occurrence of searchValue; -1 if not found.
     - Example: 
       ```js
-      const sentence = 'Welcome to ALtcampus.';
-      sentence.toUpperCase(); // 
+      let para = 'The index of the last occurrence of searchValue; -1 if not found.';
+      const searchTerm = 'not';
+      para.lastIndexOf(searchTerm); // 55
+
       let name = 'Vineet';
-      name.toUpperCase(); //
+      name.lastIndexOf(); // -1
+
       let carName = 'altis';
-      carName.toUpperCase();
+      carName.lastIndexOf(); // -1
       ```
 12. `padEnd`
 
-    - Parameter: 
-    - Return: value of the String converted into uppercase.
+    - Parameter: targetLength - The length of the resulting string once the current str has been padded. If the value is lower than str.length, the current string will be returned as-is.
+
+                padString - The string to pad the current str with. If padString is too long to stay within targetLength, it will be truncated: for left-to-right languages the left-most part and for right-to-left languages the right-most will be applied.
+
+    - Return: A String of the specified targetLength with the padString applied at the end of the current str.
     - Example: 
       ```js
-      const sentence = 'Welcome to ALtcampus.';
-      sentence.toUpperCase(); // 
+
+      const str1 = 'Breaded Mushrooms';
+      str1.padEnd(25, '.'); // "Breaded Mushrooms........"
+      
+      'abc'.padEnd(6, "123456"); // "abc123"
+      'abc'.padEnd(1);           // "abc"
+
       let name = 'Vineet';
-      name.toUpperCase(); //
-      let carName = 'altis';
-      carName.toUpperCase();
+      name.padEnd(7, "kumar"); // "Vineetk"
+      
       ```
 13. `padStart`
     
-    - Parameter: 
-    - Return: value of the String converted into uppercase.
+    - Parameter: targetLength - The length of the resulting string once the current str has been padded. If the value is less than str.length, then str is returned as-is.
+                 padString -  The string to pad the current str with. If padString is too long to stay within the targetLength, it will be truncated from the end.
+
+    - Return: A String of the specified targetLength with padString applied from the start
     - Example: 
       ```js
-      const sentence = 'Welcome to ALtcampus.';
-      sentence.toUpperCase(); // 
+      const str1 = 'Breaded Mushrooms';
+      str1.padStart(25, '.');  // "........Breaded Mushrooms"
+      
+      'abc'.padStart(6, "123456"); // "123abc"
+      'abc'.padStart(1);           //  "abc"
+
       let name = 'Vineet';
-      name.toUpperCase(); //
-      let carName = 'altis';
-      carName.toUpperCase();
+      name.padStart(7, "kumar"); // "kVineet"
       ```
 14. `repeat`
 
-    - Parameter: 
-    - Return: value of the String converted into uppercase.
+    - Parameter:  count - An integer between 0 and +Infinity, indicating the number of times to repeat the string.
+    - Return: A new string containing the specified number of copies of the given string.
     - Example: 
       ```js
       const sentence = 'Welcome to ALtcampus.';
-      sentence.toUpperCase(); // 
+      sentence.repeat(3); //  "Welcome to ALtcampus.Welcome to ALtcampus.Welcome to ALtcampus."
+      
       let name = 'Vineet';
-      name.toUpperCase(); //
+      name.repeat(5); // "VineetVineetVineetVineetVineet"
       let carName = 'altis';
-      carName.toUpperCase();
+      carName.repeat(2); // "altisaltis"
       ```
 15. `replace`
 
-    - Parameter: 
-    - Return: value of the String converted into uppercase.
+    - Parameter: regexp - A RegExp object or literal. The match or matches are replaced with newSubstr or the value returned by the specified replacerFunction.
+                 substr - A String that is to be replaced by newSubstr.
+                 newSubstr - The String that replaces the substring specified by the specified regexp or substr parameter.
+                 replacerFunction - A function to be invoked to create the new substring to be used to replace the matches to the given regexp or substr
+
+    - Return: A new string, with some or all matches of a pattern replaced by a replacement.
     - Example: 
       ```js
       const sentence = 'Welcome to ALtcampus.';
-      sentence.toUpperCase(); // 
+      sentence.replace('Welcome', 'Hello'); // "Hello to ALtcampus."
       let name = 'Vineet';
-      name.toUpperCase(); //
+      name.replace('Vineet', 'Hello'); // "Hello"
       let carName = 'altis';
-      carName.toUpperCase();
+      carName.replace('altis', 'Hello'); // "Hello"
       ```
 16. `slice`
     
-    - Parameter: 
-    - Return: value of the String converted into uppercase.
+    - Parameter:  beginIndex - The zero-based index at which to begin extraction. If negative, it is treated as str.length + beginIndex.
+      
+      endIndex - The zero-based index before which to end extraction. The character at this index will not be included.
+
+    - Return: A new string containing the extracted section of the string.
     - Example: 
       ```js
-      const sentence = 'Welcome to ALtcampus.';
-      sentence.toUpperCase(); // 
-      let name = 'Vineet';
-      name.toUpperCase(); //
-      let carName = 'altis';
-      carName.toUpperCase();
+      const sentence = 'The quick brown fox jumps over the lazy dog.';;
+      sentence.slice(6, 9); // "ick"
+      
+      sentence.slice(-10, -8); // " l"
+      
+      sentence.slice( 30); //  " the lazy dog."
       ```
     
 17. `split`
 
-    - Parameter: 
-    - Return: value of the String converted into uppercase.
+    - Parameter: separator - The pattern describing where each split should occur.  The separator can be a simple string or it can be a regular expression.
+        If separator contains multiple characters, that entire character sequence must be found in order to split.
+          
+    - Return: An Array of strings, split at each point where the separator occurs in the given string.
     - Example: 
       ```js
-      const sentence = 'Welcome to ALtcampus.';
-      sentence.toUpperCase(); // 
-      let name = 'Vineet';
-      name.toUpperCase(); //
-      let carName = 'altis';
-      carName.toUpperCase();
+      const sentence = 'Welcome to ALtcampus brown fox jumps over the lazy dog.';
+      sentence.split(' ', 7); //  ["Welcome", "to", "ALtcampus", "brown", "fox", "jumps", "over"]
+
+      
+      sentence.split(' '); // ["Welcome", "to", "ALtcampus", "brown", "fox", "jumps", "over", "the", "lazy", "dog."]
+      
+      sentence.split('-'); // ["W", "e", "l", "c", "o", "m", "e", " ", "t", "o", " ", "A", "L", "t", "c", "a", "m", "p", "u", "s", " ", "b", "r", "o", "w", "n", " ", "f", "o", "x", " ", "j", "u", "m", "p", "s", " ", "o", "v", "e", "r", " ", "t", "h", "e", " ", "l", "a", "z", "y", " ", "d", "o", "g", "."]
       ```
 18. `substring`
 
-    - Parameter: 
-    - Return: value of the String converted into uppercase.
+    - Parameter:  indexStart - The index of the first character to include in the returned substring.
+                  indexEnd - The index of the first character to exclude from the returned substring.
+
+    - Return: A new string containing the specified part of the given string.
     - Example: 
       ```js
       const sentence = 'Welcome to ALtcampus.';
-      sentence.toUpperCase(); // 
+      sentence.substring(1,7); //   "elcome"
       let name = 'Vineet';
-      name.toUpperCase(); //
+      name.substring(0,0); // ""
       let carName = 'altis';
-      carName.toUpperCase();
-      ```
+      carName.substring(0); // "altis"
+      ``` 
