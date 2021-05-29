@@ -3,6 +3,7 @@
 let from = 'Syrio Forel';
 let quote = 'There is only one thing we say to death: Not today';
 let to = 'Arya Stark';
+let to = 'Arya Stark';
 
 /*
 1. Find the index of the first 'is' in the variable quote. And store it in a new variable named indexOfIs
