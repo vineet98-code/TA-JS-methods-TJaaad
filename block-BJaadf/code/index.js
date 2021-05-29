@@ -1,4 +1,5 @@
 let fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+let fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
 
 // Add a new element ('Papaya') into fruits array at end
 
