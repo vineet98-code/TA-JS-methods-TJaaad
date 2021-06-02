@@ -25,6 +25,7 @@ let peopleName = [ ];
 // Log the length of filtered named of people in peopleName that starts with 'A' and 'C'
 
 // Log all the filtered male ('M') in persons array
+console.log(persons.filter((sex) => sex  === 'M'));
 
 // Log all the filtered female ('F') in persons array
 
@@ -63,6 +64,7 @@ let peopleName = [ ];
 // Sort the peopleGrade in descending order
 
 // Sort the peopleGrade in descending order this time you have to make sure you don't mutate the original array
+
 
 // Sort the array peopelName in ascending `ABCD..Za....z`
 
