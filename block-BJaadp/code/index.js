@@ -17,43 +17,52 @@ let persons = [
 
 // Find the average grade
 
-let totalGrade = persons.map((person)  => person.grade);
 
-let averageGrade = totalGrade.reduce(function(accumulator, currentValue){
-     return accumulator + currentValue;
-}) / persons.length;
+
+let averageGrade = persons.reduce(function(accumulator, currentValue){
+     return accumulator + currentValue.grade;
+},0) / persons.length;
 
 
 
 // Find the average grade of male
 let malePersons = persons.filter((person) => person.sex === 'M');
 
-let gradeOfMale = malePersons.map((person) =>  person.grade);
 
-let averageGradeMale = gradeOfMale.reduce(function(accumulator, currentValue){
-    return accumulator + currentValue;
-}) / gradeOfMale.length;
+let averageGradeMale = malePersons.reduce(function(accumulator, currentValue){
+    return accumulator + currentValue.grade;
+},0) / malePersons.length;
 
 
 // Find the average grade of female
 let femalePersons = persons.filter((person) => person.sex === 'F');
 
-let gradeOfFemale = femalePersons.map((person) =>  person.grade);
 
-let averageGradeFemale = gradeOfFemale.reduce(function(accumulator, currentValue){
-    return accumulator + currentValue;
-}) / gradeOfFemale.length;
+let averageGradeFemale = femalePersons.reduce(function(accumulator, currentValue){
+    return accumulator + currentValue.grade;
+},0) / femalePersons.length;
 
 // Find the highest grade
 
-let highestGrade = totalGrade.sort((a,b) => a - b).pop();
+let highestGrade = persons
+       .map((person) => person.grade)
+
+       .sort((a,b) => a - b).pop();
 // Find the highest grade in male
 
-let highestGradeOfMale = gradeOfMale.sort((a,b) => a - b).pop();
+let highestGradeOfMale = persons
+      .filter((person) => person.sex === 'M' )
+      .map((person) => person.grade)
+      .sort((a,b) => a - b).pop();
 
 // Find the highest grade in female
 
-let highestGradeOfFemale = gradeOfFemale.sort((a,b) => a - b).pop();
+let highestGradeOfFemale = persons
+
+      .filter((person) => person.sex === 'F' )
+      .map((person) => person.grade)
+      .sort((a,b) => a - b).pop();
+
 
 // Find the highest grade for people whose name starts with 'J' or 'P'
 
@@ -86,11 +95,16 @@ Output:
 {banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1}
 */
 
-const fruitsObj = {
-  "banana" : 2,
-  
+const fruitsObj = fruitBasket.reduce((acc, cv) => {
+      if(acc[cv]) {
+        acc[cv] = acc[cv] + 1;
+      } else {
+        acc[cv] = 1
+      }
+      return acc;
+}, {});
+          
 
-}
 /* 
 
 Use the fruitBasket array to create an array of array. Each array will contain two values name of fruit and number of times
@@ -110,7 +124,11 @@ const data = [
 
 // Using reduce flat data array
 
-let array = data.flat();
+data.reduce((acc, cv) =>{
+  acc = acc.concat(cv);
+  return acc;
+}, []);
+
 const dataTwo = [
   [1, 2, 3],
   [4, 5, 6],
@@ -119,7 +137,12 @@ const dataTwo = [
 ];
 
 // Using reduce flat dataTwo array
-let array = dataTwo.flat(2);
+
+dataTwo.reduce((acc, cv) =>{
+  acc = acc.concat(cv.flat(Infinity));
+  return acc;
+}, []);
+
 /*
 
 Create these functions which accepts a number value and returns a number value:
@@ -129,6 +152,22 @@ Create these functions which accepts a number value and returns a number value:
   - `triple` triples the input 
   - `half` converts the value to half and return the integer value not decimal (use Math.round(21.5) => 21)
 */
+    function increment(num){
+      return num + 1;
+    }
+    function double(num){
+      return num  * 2;
+    }
+    function decrement(num){
+      return num - 1;
+    }
+    function triple (num){
+      return num * 3;
+    }
+    function half(num){
+      return Math.round(num / 2);
+    }
+
 
 let pipeline = [
   increment,
@@ -142,9 +181,11 @@ let pipeline = [
 ];
 
 /*
-Using the pipeline variable that contains the collection of functions, taking the initial value 3 find the output.
+Using the pipeline variable that contains the collection of functions, taking the initial value 3 
+find the output.
 
-NOTE: Initial value will be passed to first function the output of that function will be the input to next function.
+NOTE: Initial value will be passed to first function the output of that function will be the input
+to next function.
 
 EXAMPLE:
   initialValue - 3
@@ -154,6 +195,11 @@ EXAMPLE:
 
   ...
 */
+
+pipeline.reduce((acc, cv) => {
+  acc = cv(acc);
+}, 3);
+
 
 let pipeline2 = [
   increment,
@@ -170,3 +216,10 @@ let pipeline2 = [
 ];
 
 // Find the output using pipeline2 the initial value if 8
+
+intialValue = 8;
+
+pipeline2.reduce((acc, cv) => {
+  acc = cv(acc);
+  return acc;
+}, 8);
