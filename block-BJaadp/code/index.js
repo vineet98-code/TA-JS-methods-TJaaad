@@ -17,9 +17,23 @@ let persons = [
 
 // Find the average grade
 
+let totalGrade = persons.map((person)  => person.grade);
+
+let averageGrade = totalGrade.reduce(function(accumulator, currentValue){
+     return accumulator + currentValue;
+}) / persons.length;
+
+
+
 // Find the average grade of male
+let malePersons = persons.filter((person) => person.sex === 'M');
+
+let gradeOfMale = 
 
 // Find the average grade of female
+let femalePersons = persons.filter((person) => person.sex === 'F');
+
+let gradeOfMale = 
 
 // Find the highest grade
 
@@ -71,6 +85,7 @@ const data = [
 
 // Using reduce flat data array
 
+let array = data.flat();
 const dataTwo = [
   [1, 2, 3],
   [4, 5, 6],
@@ -79,7 +94,7 @@ const dataTwo = [
 ];
 
 // Using reduce flat dataTwo array
-
+let array = dataTwo.flat(2);
 /*
 
 Create these functions which accepts a number value and returns a number value:
