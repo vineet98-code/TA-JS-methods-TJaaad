@@ -28,20 +28,40 @@ let averageGrade = totalGrade.reduce(function(accumulator, currentValue){
 // Find the average grade of male
 let malePersons = persons.filter((person) => person.sex === 'M');
 
-let gradeOfMale = 
+let gradeOfMale = malePersons.map((person) =>  person.grade);
+
+let averageGradeMale = gradeOfMale.reduce(function(accumulator, currentValue){
+    return accumulator + currentValue;
+}) / gradeOfMale.length;
+
 
 // Find the average grade of female
 let femalePersons = persons.filter((person) => person.sex === 'F');
 
-let gradeOfMale = 
+let gradeOfFemale = femalePersons.map((person) =>  person.grade);
+
+let averageGradeFemale = gradeOfFemale.reduce(function(accumulator, currentValue){
+    return accumulator + currentValue;
+}) / gradeOfFemale.length;
 
 // Find the highest grade
 
+let highestGrade = totalGrade.sort((a,b) => a - b).pop();
 // Find the highest grade in male
+
+let highestGradeOfMale = gradeOfMale.sort((a,b) => a - b).pop();
 
 // Find the highest grade in female
 
+let highestGradeOfFemale = gradeOfFemale.sort((a,b) => a - b).pop();
+
 // Find the highest grade for people whose name starts with 'J' or 'P'
+
+let highestGradePeople = persons.filter((person) => person.name.startsWith('J') || person.name.startsWith('P'));
+
+let gradeWithNameJorP = highestGradePeople.map((person) => person.grade);
+
+[...gradeWithNameJorP].sort((a,b) => a-b).pop();
 
 const fruitBasket = [
   'banana',
@@ -66,6 +86,11 @@ Output:
 {banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1}
 */
 
+const fruitsObj = {
+  "banana" : 2,
+  
+
+}
 /* 
 
 Use the fruitBasket array to create an array of array. Each array will contain two values name of fruit and number of times
