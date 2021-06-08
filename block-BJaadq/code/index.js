@@ -1,35 +1,71 @@
 // NOTE: You can not use reduce methods to solve this exercise
 
 function countAllPeople() {
-  got.houses.
+  let count = 0;
+  got.houses.forEach((house) => {
+     count += house.people.length 
+  });
+  return count;
 }
 
 function peopleByHouses() {
-  // your code goes here
-}
+  let final = [];
+  got.houses.forEach((house) => {
+    final[house.name] = house.people.length
+  }); 
+  return final;
+};
 
 function everyone() {
-  // your code goes here
+  let result = [];
+ got.houses.forEach((house) => {
+    result += house.people.map(p => p.name);
+ });
+  return result;
 }
 
 function nameWithS() {
-  // your code goes here
+  let result = {};
+  got.houses.forEach((house) => {
+   result += house.people.map((p) => p.name).filter((p) => p.includes('S') || p.includes('s'));
+  });
+  return result;
 }
 
 function nameWithA() {
-  // your code goes here
+  let result = {};
+  got.houses.forEach((house) => {
+     result += house.people.map((p) => p.name).filter((name) => name.includes('A') || name.includes('a'));
+
+  });
+  return result;
 }
 
 function surnameWithS() {
-  // your code goes here
+  let result = {};
+  got.houses.forEach((house) => {
+    result += house.people.map((p) => p.name).filter((name) =>
+      name.split(" ")[1].includes('S'));
+  });
+  return result;
 }
 
 function surnameWithA() {
-  // your code goes here
+  let result = {};
+  got.houses.forEach((house) =>{
+    result += house.people.map((p) => p.name).filter((name) =>  
+    name.split("")[1]
+    .includes('A'));
+  });
+  return result;
 }
 
 function peopleNameOfAllHouses() {
-  // your code goes here
+   let result = {};
+   got.houses.forEach((house) => {
+   result[house.name] = house.people.map((p) => p.name).sort();
+   });
+   return result;
 }
 
 // Testing your result after writing your function
